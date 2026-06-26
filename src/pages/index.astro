@@ -1,11 +1,197 @@
 ---
-import Welcome from '../components/Welcome.astro';
+import ContactSection from '../components/ContactSection.astro';
+import Hero from '../components/Hero.astro';
+import HoursSection from '../components/HoursSection.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import LocationsSection from '../components/LocationsSection.astro';
+import ProductsSection from '../components/ProductsSection.astro';
+import SiteNav from '../components/SiteNav.astro';
+import StorySection from '../components/StorySection.astro';
 ---
 
-<Layout>
-	<Welcome />
+<Layout
+	title="New Jersey Grocery & Deli | Oakland Park & Margate"
+	description="A modern bilingual homepage for New Jersey Grocery & Deli, a family-owned Uruguayan deli serving Oakland Park and Margate, Florida."
+>
+	<SiteNav />
+	<main>
+		<Hero />
+		<StorySection />
+		<LocationsSection />
+		<HoursSection />
+		<ProductsSection />
+		<ContactSection />
+	</main>
 </Layout>
+
+<script>
+	const translations = {
+		en: {
+			'nav.story': 'Story',
+			'nav.locations': 'Locations',
+			'nav.hours': 'Hours',
+			'nav.products': 'Menu Preview',
+			'nav.contact': 'Contact',
+			'hero.eyebrow': 'Family-Owned Since 1994',
+			'hero.title': 'New Jersey Grocery & Deli',
+			'hero.lead':
+				'A South Florida neighborhood deli rooted in Uruguayan family values, fresh sandwiches, everyday groceries, and service that remembers your name.',
+			'hero.ctaLocations': 'Find a location',
+			'hero.ctaCall': 'Call Oakland Park',
+			'hero.statFounded': 'Founded by Walter & Gloria',
+			'hero.statLocationsNumber': '2 Locations',
+			'hero.statLocations': 'Serving Oakland Park & Margate',
+			'hero.statMargate': 'Margate Expansion',
+			'story.eyebrow': 'Our story',
+			'story.title': 'A Uruguayan family story, served daily in South Florida.',
+			'story.copy':
+				'Walter and Gloria founded New Jersey Grocery & Deli in 1994 with the simple belief that hard work, good food, and family unity could build something lasting. Their children continue that legacy today, keeping the deli personal, welcoming, and proudly multi-generational.',
+			'story.milestoneOne': '1994: Oakland Park roots',
+			'story.milestoneTwo': '2017: Margate location opens',
+			'story.milestoneThree': 'Today: family-owned and hands-on',
+			'story.noteTitle': '1994 to today',
+			'story.noteCopy': 'Neighborhood service, family recipes, and a second location opened in 2017.',
+			'locations.eyebrow': 'Visit us',
+			'locations.title': 'Two family-run delis, one familiar welcome.',
+			'locations.oakland.label': 'Original location',
+			'locations.oakland.name': 'Oakland Park',
+			'locations.margate.label': 'Second location',
+			'locations.margate.name': 'Margate',
+			'locations.call': 'Call now',
+			'locations.directions': 'Directions',
+			'hours.eyebrow': 'Hours',
+			'hours.title': 'Open early for breakfast, lunch, and daily essentials.',
+			'hours.copy': 'Stop in before work, bring the family for lunch, or call ahead from either location.',
+			'hours.weekdays': 'Monday-Friday',
+			'hours.weekend': 'Saturday-Sunday',
+			'products.eyebrow': 'Featured favorites',
+			'products.title': 'A quick taste of the deli counter and corner market.',
+			'products.copy':
+				'No full menu is needed to show what makes the shop useful: fresh sandwiches, everyday grocery items, cold drinks, and simple sides.',
+			'products.sandwiches.title': 'Sandwiches',
+			'products.sandwiches.copy': 'Fresh deli favorites made for lunch breaks, family stops, and quick pickup.',
+			'products.groceries.title': 'Grocery items',
+			'products.groceries.copy': 'Everyday pantry goods, snacks, and essentials for the ride home.',
+			'products.drinks.title': 'Drinks',
+			'products.drinks.copy': 'Cold drinks, coffee, and grab-and-go refreshments.',
+			'products.sides.title': 'Sides',
+			'products.sides.copy': 'Simple sides and deli extras to round out the meal.',
+			'contact.eyebrow': 'Contact',
+			'contact.title': 'Call your neighborhood deli.',
+			'contact.copy':
+				"Questions about today's specials, groceries, or ordering ahead? Reach the location closest to you and we will be happy to help.",
+			'contact.oakland': 'Oakland Park',
+			'contact.margate': 'Margate',
+			'contact.footer': 'Proudly family-owned and serving South Florida since 1994.',
+			'footer.copy': 'Family-owned since 1994',
+		},
+		es: {
+			'nav.story': 'Historia',
+			'nav.locations': 'Locales',
+			'nav.hours': 'Horario',
+			'nav.products': 'Menu',
+			'nav.contact': 'Contacto',
+			'hero.eyebrow': 'Familia Propietaria Desde 1994',
+			'hero.title': 'New Jersey Grocery & Deli',
+			'hero.lead':
+				'Un deli de vecindario en el sur de Florida con valores familiares uruguayos, sandwiches frescos, viveres diarios y una atencion que recuerda tu nombre.',
+			'hero.ctaLocations': 'Ver locales',
+			'hero.ctaCall': 'Llamar a Oakland Park',
+			'hero.statFounded': 'Fundado por Walter y Gloria',
+			'hero.statLocationsNumber': '2 Locales',
+			'hero.statLocations': 'Sirviendo Oakland Park y Margate',
+			'hero.statMargate': 'Expansion a Margate',
+			'story.eyebrow': 'Nuestra historia',
+			'story.title': 'Una historia familiar uruguaya, servida cada dia en el sur de Florida.',
+			'story.copy':
+				'Walter y Gloria fundaron New Jersey Grocery & Deli en 1994 con la idea simple de que el trabajo duro, la buena comida y la union familiar podian construir algo duradero. Hoy sus hijos continuan ese legado, manteniendo el deli cercano, acogedor y orgullosamente multigeneracional.',
+			'story.milestoneOne': '1994: raices en Oakland Park',
+			'story.milestoneTwo': '2017: abre el local de Margate',
+			'story.milestoneThree': 'Hoy: familia presente y trabajando',
+			'story.noteTitle': 'De 1994 hasta hoy',
+			'story.noteCopy': 'Servicio de vecindario, recetas familiares y un segundo local abierto en 2017.',
+			'locations.eyebrow': 'Visitenos',
+			'locations.title': 'Dos delis familiares, una bienvenida conocida.',
+			'locations.oakland.label': 'Local original',
+			'locations.oakland.name': 'Oakland Park',
+			'locations.margate.label': 'Segundo local',
+			'locations.margate.name': 'Margate',
+			'locations.call': 'Llamar',
+			'locations.directions': 'Como llegar',
+			'hours.eyebrow': 'Horario',
+			'hours.title': 'Abierto temprano para desayuno, almuerzo y compras diarias.',
+			'hours.copy':
+				'Pase antes del trabajo, venga con la familia para almorzar o llame con anticipacion a cualquiera de nuestros locales.',
+			'hours.weekdays': 'Lunes-Viernes',
+			'hours.weekend': 'Sabado-Domingo',
+			'products.eyebrow': 'Favoritos destacados',
+			'products.title': 'Una muestra rapida del deli y del mercado de la esquina.',
+			'products.copy':
+				'No hace falta un menu completo para mostrar lo util del local: sandwiches frescos, viveres diarios, bebidas frias y acompanantes simples.',
+			'products.sandwiches.title': 'Sandwiches',
+			'products.sandwiches.copy': 'Favoritos frescos de deli para el almuerzo, paradas familiares y pedidos rapidos.',
+			'products.groceries.title': 'Viveres',
+			'products.groceries.copy': 'Productos diarios, snacks y basicos para la casa.',
+			'products.drinks.title': 'Bebidas',
+			'products.drinks.copy': 'Bebidas frias, cafe y opciones para llevar.',
+			'products.sides.title': 'Acompanantes',
+			'products.sides.copy': 'Acompanantes simples y extras de deli para completar la comida.',
+			'contact.eyebrow': 'Contacto',
+			'contact.title': 'Llame a su deli de vecindario.',
+			'contact.copy':
+				'Preguntas sobre especiales del dia, viveres o pedidos por adelantado? Comunicate con el local mas cercano y con gusto te ayudamos.',
+			'contact.oakland': 'Oakland Park',
+			'contact.margate': 'Margate',
+			'contact.footer': 'Orgullosamente familiar y sirviendo al sur de Florida desde 1994.',
+			'footer.copy': 'Negocio familiar desde 1994',
+		},
+	};
+
+	const navPanel = document.querySelector('.nav-panel');
+	const menuToggle = document.querySelector('.menu-toggle');
+	const langButtons = document.querySelectorAll('[data-lang-option]');
+
+	function setMenu(open) {
+		navPanel?.classList.toggle('is-open', open);
+		menuToggle?.setAttribute('aria-expanded', String(open));
+		document.body.classList.toggle('no-scroll', open);
+	}
+
+	function setLanguage(lang) {
+		const dictionary = translations[lang] || translations.en;
+		document.documentElement.lang = lang;
+		localStorage.setItem('preferredLanguage', lang);
+		document.body.classList.add('is-translating');
+
+		document.querySelectorAll('[data-i18n]').forEach((element) => {
+			const key = element.getAttribute('data-i18n');
+			if (key && dictionary[key]) {
+				element.textContent = dictionary[key];
+			}
+		});
+
+		langButtons.forEach((button) => {
+			const isActive = button.getAttribute('data-lang-option') === lang;
+			button.classList.toggle('is-active', isActive);
+			button.setAttribute('aria-pressed', String(isActive));
+		});
+
+		window.setTimeout(() => document.body.classList.remove('is-translating'), 140);
+	}
+
+	menuToggle?.addEventListener('click', () => {
+		setMenu(!navPanel?.classList.contains('is-open'));
+	});
+
+	document.querySelectorAll('.nav-panel a').forEach((link) => {
+		link.addEventListener('click', () => setMenu(false));
+	});
+
+	langButtons.forEach((button) => {
+		button.addEventListener('click', () => {
+			setLanguage(button.getAttribute('data-lang-option') || 'en');
+		});
+	});
+
+	setLanguage(localStorage.getItem('preferredLanguage') || 'en');
+</script>

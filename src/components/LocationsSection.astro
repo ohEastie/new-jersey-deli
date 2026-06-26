@@ -1,0 +1,139 @@
+---
+const locations = [
+		{
+		key: 'oakland',
+		image: 'https://images.unsplash.com/photo-1564759298141-cd3a8ed9b48b?auto=format&fit=crop&w=900&q=82',
+		address: '192 E Prospect Rd',
+		city: 'Oakland Park, FL 33334',
+		phone: '(954) 561-9211',
+		tel: '+19545619211',
+		map: 'https://www.google.com/maps/search/?api=1&query=192%20E%20Prospect%20Rd%20Oakland%20Park%20FL%2033334',
+	},
+	{
+		key: 'margate',
+		image: 'https://images.unsplash.com/photo-1578916171728-46686eac8d58?auto=format&fit=crop&w=900&q=82',
+		address: '5416 W Atlantic Blvd',
+		city: 'Margate, FL 33063',
+		phone: '(754) 222-6760',
+		tel: '+17542226760',
+		map: 'https://www.google.com/maps/search/?api=1&query=5416%20W%20Atlantic%20Blvd%20Margate%20FL%2033063',
+	},
+];
+---
+
+<section class="section section--white locations" id="locations">
+	<div class="container">
+		<div class="section-heading">
+			<p class="eyebrow" data-i18n="locations.eyebrow">Visit us</p>
+			<h2 data-i18n="locations.title">Two family-run delis, one familiar welcome.</h2>
+		</div>
+
+		<div class="locations__grid">
+			{locations.map((location) => (
+				<article class="location-card">
+					<img src={location.image} alt="" loading="lazy" />
+					<div>
+						<p class="location-card__label" data-i18n={`locations.${location.key}.label`}>
+							{location.key === 'oakland' ? 'Original location' : 'Second location'}
+						</p>
+						<h3 data-i18n={`locations.${location.key}.name`}>
+							{location.key === 'oakland' ? 'Oakland Park' : 'Margate'}
+						</h3>
+						<p>{location.address}<br />{location.city}</p>
+						<a href={`tel:${location.tel}`}>{location.phone}</a>
+					</div>
+					<div class="location-card__actions">
+						<a class="btn btn--primary" data-i18n="locations.call" href={`tel:${location.tel}`}>Call now</a>
+						<a class="btn btn--secondary" data-i18n="locations.directions" href={location.map} target="_blank" rel="noreferrer">Directions</a>
+					</div>
+				</article>
+			))}
+		</div>
+	</div>
+</section>
+
+<style>
+	.section-heading {
+		margin-bottom: 2rem;
+	}
+
+	.locations__grid {
+		display: grid;
+		gap: 1rem;
+	}
+
+	.location-card {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		gap: 2rem;
+		overflow: hidden;
+		min-height: 100%;
+		border: 1px solid rgba(7, 55, 99, 0.12);
+		border-radius: var(--radius);
+		background: var(--white);
+		box-shadow: var(--shadow-soft);
+		transition:
+			transform 180ms ease,
+			box-shadow 180ms ease;
+	}
+
+	.location-card:hover {
+		transform: translateY(-4px);
+		box-shadow: var(--shadow);
+	}
+
+	.location-card img {
+		width: 100%;
+		aspect-ratio: 16 / 8;
+		object-fit: cover;
+		object-position: center;
+	}
+
+	.location-card > div:not(.location-card__actions) {
+		padding: 0 1.25rem;
+	}
+
+	.location-card__label {
+		margin-bottom: 0.7rem;
+		color: var(--blue);
+		font-size: 0.78rem;
+		font-weight: 900;
+		text-transform: uppercase;
+	}
+
+	.location-card h3 {
+		margin-bottom: 0.7rem;
+		font-family: Georgia, "Times New Roman", serif;
+		font-size: 2rem;
+	}
+
+	.location-card p {
+		color: var(--ink-soft);
+	}
+
+	.location-card a:not(.btn) {
+		color: var(--blue);
+		font-weight: 900;
+	}
+
+	.location-card__actions {
+		display: grid;
+		gap: 0.7rem;
+		padding: 0 1.25rem 1.25rem;
+	}
+
+	@media (min-width: 760px) {
+		.locations__grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		.location-card > div:not(.location-card__actions) {
+			padding-inline: 1.5rem;
+		}
+
+		.location-card__actions {
+			padding: 0 1.5rem 1.5rem;
+		}
+	}
+</style>

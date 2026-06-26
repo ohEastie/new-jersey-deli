@@ -1,0 +1,101 @@
+<section class="section section--cream story" id="story">
+	<div class="container story__grid">
+		<div class="story__copy">
+			<p class="eyebrow" data-i18n="story.eyebrow">Our story</p>
+			<h2 data-i18n="story.title">A Uruguayan family story, served daily in South Florida.</h2>
+			<p class="lead" data-i18n="story.copy">
+				Walter and Gloria founded New Jersey Grocery & Deli in 1994 with the simple
+				belief that hard work, good food, and family unity could build something lasting.
+				Their children continue that legacy today, keeping the deli personal,
+				welcoming, and proudly multi-generational.
+			</p>
+			<div class="story__milestones">
+				<span data-i18n="story.milestoneOne">1994: Oakland Park roots</span>
+				<span data-i18n="story.milestoneTwo">2017: Margate location opens</span>
+				<span data-i18n="story.milestoneThree">Today: family-owned and hands-on</span>
+			</div>
+		</div>
+
+		<div class="story__image">
+			<img
+				src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1100&q=82"
+				alt="Family and friends sharing food around a table"
+				loading="lazy"
+			/>
+			<div class="story__note">
+				<strong data-i18n="story.noteTitle">1994 to today</strong>
+				<span data-i18n="story.noteCopy">Neighborhood service, family recipes, and a second location opened in 2017.</span>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.story__grid {
+		display: grid;
+		gap: 2rem;
+		align-items: center;
+	}
+
+	.story__copy {
+		max-width: 660px;
+	}
+
+	.story__milestones {
+		display: grid;
+		gap: 0.65rem;
+		margin-top: 1.5rem;
+	}
+
+	.story__milestones span {
+		display: inline-flex;
+		align-items: center;
+		min-height: 2.8rem;
+		padding: 0.65rem 0.85rem;
+		border-left: 4px solid var(--gold);
+		border-radius: var(--radius);
+		background: var(--white);
+		box-shadow: var(--shadow-soft);
+		color: var(--blue-deep);
+		font-weight: 850;
+	}
+
+	.story__image {
+		position: relative;
+	}
+
+	.story__image img {
+		width: 100%;
+		aspect-ratio: 4 / 3;
+		border-radius: var(--radius);
+		object-fit: cover;
+		object-position: center;
+		box-shadow: var(--shadow);
+	}
+
+	.story__note {
+		margin: -3.5rem 1rem 0;
+		position: relative;
+		padding: 1rem;
+		border-left: 5px solid var(--gold);
+		border-radius: var(--radius);
+		background: var(--white);
+		box-shadow: var(--shadow-soft);
+	}
+
+	.story__note strong,
+	.story__note span {
+		display: block;
+	}
+
+	.story__note span {
+		color: var(--ink-soft);
+	}
+
+	@media (min-width: 900px) {
+		.story__grid {
+			grid-template-columns: minmax(0, 1fr) minmax(360px, 0.78fr);
+			gap: 4rem;
+		}
+	}
+</style>

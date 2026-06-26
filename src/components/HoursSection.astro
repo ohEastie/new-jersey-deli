@@ -1,0 +1,66 @@
+<section class="section section--charcoal hours" id="hours">
+	<div class="container hours__grid">
+		<div>
+			<p class="eyebrow" data-i18n="hours.eyebrow">Hours</p>
+			<h2 data-i18n="hours.title">Open early for breakfast, lunch, and daily essentials.</h2>
+			<p class="lead" data-i18n="hours.copy">
+				Stop in before work, bring the family for lunch, or call ahead from either location.
+			</p>
+		</div>
+
+		<div class="hours-board" aria-label="Store hours">
+			<div class="hours-board__row">
+				<span data-i18n="hours.weekdays">Monday-Friday</span>
+				<strong>7:00 AM - 4:00 PM</strong>
+			</div>
+			<div class="hours-board__row">
+				<span data-i18n="hours.weekend">Saturday-Sunday</span>
+				<strong>8:00 AM - 4:00 PM</strong>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.hours__grid {
+		display: grid;
+		gap: 2rem;
+		align-items: center;
+	}
+
+	.hours-board {
+		display: grid;
+		gap: 0.8rem;
+		padding: 1rem;
+		border: 1px solid rgba(255, 253, 248, 0.2);
+		border-radius: var(--radius);
+		background: rgba(255, 253, 248, 0.07);
+		box-shadow: 0 20px 54px rgba(0, 0, 0, 0.13);
+	}
+
+	.hours-board__row {
+		display: grid;
+		gap: 0.2rem;
+		padding: 1rem;
+		border-radius: var(--radius);
+		background: rgba(255, 253, 248, 0.11);
+	}
+
+	.hours-board__row span {
+		color: var(--gold);
+		font-size: 0.82rem;
+		font-weight: 900;
+		text-transform: uppercase;
+	}
+
+	.hours-board__row strong {
+		font-size: clamp(1.25rem, 6vw, 2rem);
+	}
+
+	@media (min-width: 860px) {
+		.hours__grid {
+			grid-template-columns: minmax(0, 1fr) minmax(330px, 0.64fr);
+			gap: 4rem;
+		}
+	}
+</style>
