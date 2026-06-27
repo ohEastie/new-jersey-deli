@@ -4,10 +4,10 @@
 			<p class="eyebrow" data-i18n="story.eyebrow">Our story</p>
 			<h2 data-i18n="story.title">A Uruguayan family story, served daily in South Florida.</h2>
 			<p class="lead" data-i18n="story.copy">
-				Walter and Gloria founded New Jersey Grocery & Deli in 1994 with the simple
-				belief that hard work, good food, and family unity could build something lasting.
-				Their children continue that legacy today, keeping the deli personal,
-				welcoming, and proudly multi-generational.
+				In 1994, Walter and Gloria opened New Jersey Grocery & Deli with one goal:
+				serve every customer like family. More than thirty years later, the same family
+				still welcomes neighbors every morning with breakfast, fresh sandwiches,
+				groceries, and familiar faces.
 			</p>
 			<div class="story__milestones">
 				<span data-i18n="story.milestoneOne">1994: Oakland Park roots</span>
@@ -18,20 +18,20 @@
 
 		<div class="story__image">
 			<img
-				src="/images/BREAKFASTcrosshamncheese.avif"
-				alt="Croissant breakfast sandwich from New Jersey Grocery and Deli"
-				loading="lazy"
-			/>
-			<img
-				class="story__image-accent"
-				src="/images/FEATUREDSANDhameggncheese.avif"
-				alt="Ham egg and cheese sandwich"
+				src="/images/about-us-new-jersey-deli.avif"
+				alt="New Jersey Grocery and Deli family owners"
 				loading="lazy"
 			/>
 			<div class="story__note">
 				<strong data-i18n="story.noteTitle">1994 to today</strong>
 				<span data-i18n="story.noteCopy">Neighborhood service, family recipes, and a second location opened in 2017.</span>
 			</div>
+			<img
+				class="story__image-accent"
+				src="/images/about-us-new-jersey-deli2.avif"
+				alt="Family behind New Jersey Grocery and Deli"
+				loading="lazy"
+			/>
 		</div>
 	</div>
 </section>
@@ -67,25 +67,34 @@
 	}
 
 	.story__image {
-		position: relative;
+		display: grid;
+		gap: 1rem;
 	}
 
 	.story__image > img:first-child {
 		width: 100%;
 		aspect-ratio: 4 / 3;
 		border-radius: var(--radius);
-		object-fit: cover;
+		background: var(--neutral-strong);
+		object-fit: contain;
 		object-position: center;
 		box-shadow: var(--shadow);
 	}
 
 	.story__image-accent {
-		display: none;
+		width: min(78%, 21rem);
+		aspect-ratio: 4 / 3;
+		justify-self: end;
+		border-radius: var(--radius);
+		background: var(--neutral-strong);
+		object-fit: contain;
+		object-position: center;
+		box-shadow: var(--shadow);
 	}
 
 	.story__note {
-		margin: -3.5rem 1rem 0;
-		position: relative;
+		width: min(calc(100% - 2rem), 22rem);
+		justify-self: center;
 		padding: 1rem;
 		border-left: 5px solid var(--gold);
 		border-radius: var(--radius);
@@ -109,26 +118,29 @@
 		}
 
 		.story__image {
-			padding-bottom: 4.6rem;
+			grid-template-columns: minmax(280px, 340px) auto;
+			align-items: center;
+			gap: 1.5rem;
+		}
+
+		.story__image > img:first-child {
+			grid-column: 1 / -1;
 		}
 
 		.story__image-accent {
-			position: absolute;
-			right: -1rem;
-			bottom: 0;
-			display: block;
-			width: min(58%, 19rem);
-			aspect-ratio: 4 / 3;
+			grid-column: 1 / -1;
+			grid-row: 3;
+			justify-self: end;
+			width: min(82%, 25rem);
 			border: 8px solid var(--neutral);
-			border-radius: var(--radius);
-			object-fit: cover;
-			object-position: center;
-			box-shadow: var(--shadow);
 		}
 
 		.story__note {
-			max-width: 22rem;
-			margin-top: -4rem;
+			grid-column: 1;
+			grid-row: 2;
+			width: min(100%, 21.25rem);
+			max-width: 21.25rem;
+			justify-self: end;
 		}
 	}
 </style>

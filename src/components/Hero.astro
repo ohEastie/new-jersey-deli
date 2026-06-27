@@ -1,6 +1,6 @@
 <section class="hero" id="top">
 	<div class="hero__media" aria-hidden="true">
-		<img class="hero__slide hero__slide--one" src="/images/FEATUREDSANDchivito.avif" alt="" loading="eager" />
+		<img class="hero__slide hero__slide--one" src="/images/FEATUREDSANDchivito.avif" alt="" loading="eager" fetchpriority="high" />
 		<img class="hero__slide hero__slide--two" src="/images/BREAKFASTperico.avif" alt="" loading="eager" />
 		<img class="hero__slide hero__slide--three" src="/images/FEATUREDSANDcuban.avif" alt="" loading="eager" />
 	</div>
@@ -8,7 +8,6 @@
 
 	<div class="hero__content container">
 		<div class="hero__copy">
-			<img class="hero__logo" src="/images/logo.png" alt="" width="148" height="148" />
 			<p class="eyebrow hero__eyebrow" data-i18n="hero.eyebrow">Family-Owned Since 1994</p>
 			<h1 data-i18n="hero.title">New Jersey Grocery & Deli</h1>
 			<p class="hero__lead" data-i18n="hero.lead">
@@ -42,7 +41,7 @@
 	.hero {
 		position: relative;
 		display: grid;
-		min-height: calc(100svh - 4.75rem);
+		min-height: 78svh;
 		overflow: hidden;
 		color: var(--white);
 	}
@@ -64,9 +63,9 @@
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
-		object-position: 62% center;
+		object-position: 54% center;
 		opacity: 0;
-		transform: scale(1.04);
+		transform: scale(1.005);
 		animation: hero-fade 18s infinite;
 	}
 
@@ -77,23 +76,22 @@
 
 	.hero__slide--three {
 		animation-delay: 12s;
-		object-position: 58% center;
+		object-position: 52% center;
 	}
 
 	@keyframes hero-fade {
 		0%,
-		8% {
-			opacity: 0;
-		}
-
-		14%,
-		38% {
+		28% {
 			opacity: 1;
 		}
 
-		44%,
-		100% {
+		36%,
+		92% {
 			opacity: 0;
+		}
+
+		100% {
+			opacity: 1;
 		}
 	}
 
@@ -108,23 +106,12 @@
 		display: grid;
 		align-content: center;
 		gap: 2rem;
-		min-height: calc(100svh - 4.75rem);
-		padding: 5rem 1rem 5.75rem;
+		min-height: 78svh;
+		padding: 4.25rem 1rem 4.75rem;
 	}
 
 	.hero__copy {
 		max-width: 720px;
-	}
-
-	.hero__logo {
-		width: clamp(5.6rem, 22vw, 8.6rem);
-		aspect-ratio: 1;
-		margin-bottom: 1rem;
-		border: 4px solid rgba(255, 253, 248, 0.86);
-		border-radius: 999px;
-		object-fit: cover;
-		object-position: center;
-		box-shadow: 0 18px 44px rgba(0, 0, 0, 0.22);
 	}
 
 	.hero__eyebrow {
@@ -162,21 +149,21 @@
 	.hero__actions {
 		display: flex;
 		flex-direction: column;
-		gap: 0.85rem;
-		width: min(100%, 390px);
-		margin-top: 1.6rem;
+		gap: 1rem;
+		width: min(100%, 430px);
+		margin-top: 1.8rem;
 	}
 
 	.hero__actions .btn {
-		min-height: 3.18rem;
-		padding-inline: 1.18rem;
+		min-height: 3.35rem;
+		padding-inline: 1.35rem;
 	}
 
 	.hero__panel {
 		display: grid;
-		gap: 0.85rem;
-		width: min(100%, 620px);
-		padding: 0.85rem;
+		gap: 0.72rem;
+		width: min(100%, 560px);
+		padding: 0.72rem;
 		border: 1px solid rgba(255, 253, 248, 0.2);
 		border-radius: var(--radius);
 		background: rgba(3, 28, 52, 0.88);
@@ -184,8 +171,8 @@
 	}
 
 	.hero__panel div {
-		min-height: 124px;
-		padding: 1.05rem;
+		min-height: 108px;
+		padding: 0.92rem;
 		border-radius: 6px;
 		background: rgba(7, 55, 99, 0.86);
 		border: 1px solid rgba(255, 253, 248, 0.16);
@@ -231,7 +218,7 @@
 
 	@media (min-width: 1024px) {
 		.hero__content {
-			grid-template-columns: minmax(0, 1fr) 390px;
+			grid-template-columns: minmax(0, 1fr) 360px;
 			align-items: center;
 			gap: 2.5rem;
 		}
@@ -239,7 +226,7 @@
 		.hero__panel {
 			grid-template-columns: 1fr;
 			justify-self: end;
-			margin-top: 4.2rem;
+			margin-top: 3.2rem;
 		}
 	}
 

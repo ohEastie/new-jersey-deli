@@ -46,7 +46,7 @@ const locations = [
 					</div>
 					<div class="location-card__actions">
 						<a class="btn btn--primary" data-i18n="locations.call" href={`tel:${location.tel}`}>Call now</a>
-						<a class="btn btn--secondary" data-i18n="locations.directions" href={location.map} target="_blank" rel="noreferrer">Directions</a>
+						<a class="btn btn--secondary" data-i18n="locations.maps" href={location.map} target="_blank" rel="noreferrer">View on Google Maps</a>
 					</div>
 				</article>
 			))}
@@ -61,7 +61,7 @@ const locations = [
 
 	.locations__grid {
 		display: grid;
-		gap: 1rem;
+		gap: 1.25rem;
 	}
 
 	.location-card {
@@ -87,7 +87,7 @@ const locations = [
 
 	.location-card img {
 		width: 100%;
-		aspect-ratio: 16 / 8;
+		aspect-ratio: 16 / 9;
 		object-fit: cover;
 		object-position: center;
 	}

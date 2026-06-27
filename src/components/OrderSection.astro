@@ -4,14 +4,12 @@ const orderLinks = [
 		key: 'uber',
 		label: 'Uber Eats',
 		href: 'https://www.order.store/store/new-jersey-deli-2/RdKfeHo8V3C5XNzBEly_wg?from_challenge=1',
-		image: '/images/FEATUREDSANDcuban.avif',
 		logo: '/images/Uber-Eats-Logo.png',
 	},
 	{
 		key: 'doordash',
 		label: 'DoorDash',
 		href: 'https://order.online/store/303113?pickup=true&redirected=true',
-		image: '/images/BREAKFAST2eggsnbacon.avif',
 		logo: '/images/DoorDash-logo.png',
 	},
 ];
@@ -30,14 +28,15 @@ const orderLinks = [
 		<div class="order-strip__actions" aria-label="Online ordering options">
 			{orderLinks.map((link) => (
 				<a class={`order-link order-link--${link.key}`} href={link.href} target="_blank" rel="noreferrer">
-					<img src={link.image} alt="" loading="lazy" />
-					<span>
-						<img class="order-link__logo" src={link.logo} alt={link.label} loading="lazy" />
-						<small data-i18n={`order.${link.key}Copy`}>
-							{link.key === 'uber' ? 'Delivery through Uber Eats' : 'Pickup and delivery through DoorDash'}
-						</small>
-					</span>
-					<em data-i18n="order.action">Order now</em>
+					<div class="order-link__body">
+						<span>
+							<img class="order-link__logo" src={link.logo} alt={link.label} loading="lazy" />
+							<small data-i18n={`order.${link.key}Copy`}>
+								{link.key === 'uber' ? 'Delivery through Uber Eats' : 'Pickup and delivery through DoorDash'}
+							</small>
+						</span>
+						<em data-i18n="order.action">Order now</em>
+					</div>
 				</a>
 			))}
 		</div>
@@ -75,16 +74,16 @@ const orderLinks = [
 
 	.order-strip__actions {
 		display: grid;
-		gap: 0.75rem;
+		gap: 1rem;
 	}
 
 	.order-link {
 		display: grid;
-		grid-template-columns: 5.25rem minmax(0, 1fr);
-		gap: 0.9rem;
-		align-items: center;
-		min-height: 6.4rem;
-		padding: 0.65rem;
+		grid-template-rows: 1fr;
+		gap: 0;
+		overflow: hidden;
+		min-height: 100%;
+		padding: 0;
 		border: 1px solid rgba(255, 253, 248, 0.2);
 		border-radius: var(--radius);
 		background: rgba(255, 253, 248, 0.08);
@@ -100,29 +99,31 @@ const orderLinks = [
 		background: rgba(255, 253, 248, 0.13);
 	}
 
-	.order-link img {
-		width: 100%;
-		aspect-ratio: 1;
-		border-radius: 6px;
-		object-fit: cover;
-		object-position: center;
+	.order-link__body {
+		display: grid;
+		grid-template-rows: 1fr auto;
+		gap: 1.85rem;
+		min-height: 18rem;
+		padding: 2rem 1.35rem 1.45rem;
 	}
 
 	.order-link span {
 		display: grid;
-		gap: 0.45rem;
+		justify-items: center;
+		gap: 1.25rem;
 		align-content: center;
 		min-width: 0;
+		text-align: center;
 	}
 
 	.order-link__logo {
-		width: auto;
-		max-width: 8.5rem;
-		height: 1.7rem;
+		width: min(21rem, 92%);
+		max-width: 21rem;
+		height: 5.25rem;
 		aspect-ratio: auto;
 		border-radius: 0;
 		object-fit: contain;
-		object-position: left center;
+		object-position: center;
 		filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.14));
 	}
 
@@ -134,17 +135,20 @@ const orderLinks = [
 	}
 
 	.order-link em {
-		grid-column: 1 / -1;
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		min-height: 2.65rem;
+		justify-self: center;
+		width: min(100%, 13rem);
+		min-height: 3.15rem;
+		padding-inline: 1.65rem;
 		border-radius: 6px;
 		background: var(--gold);
 		color: var(--blue-deep);
 		font-size: 0.86rem;
 		font-style: normal;
 		font-weight: 950;
+		text-align: center;
 		text-transform: uppercase;
 	}
 
@@ -158,15 +162,9 @@ const orderLinks = [
 			grid-template-columns: repeat(2, minmax(0, 1fr));
 		}
 
-		.order-link {
-			grid-template-columns: 1fr;
-			align-content: start;
-			min-height: 100%;
-			padding: 0.8rem;
-		}
-
-		.order-link img {
-			aspect-ratio: 4 / 3;
+		.order-link__body {
+			min-height: 20rem;
+			padding: 2.35rem 1.5rem 1.55rem;
 		}
 	}
 </style>
