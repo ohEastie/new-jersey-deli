@@ -4,6 +4,7 @@ import Hero from '../components/Hero.astro';
 import HoursSection from '../components/HoursSection.astro';
 import Layout from '../layouts/Layout.astro';
 import LocationsSection from '../components/LocationsSection.astro';
+import OrderSection from '../components/OrderSection.astro';
 import ProductsSection from '../components/ProductsSection.astro';
 import SiteNav from '../components/SiteNav.astro';
 import StorySection from '../components/StorySection.astro';
@@ -20,6 +21,7 @@ import StorySection from '../components/StorySection.astro';
 		<LocationsSection />
 		<HoursSection />
 		<ProductsSection />
+		<OrderSection />
 		<ContactSection />
 	</main>
 </Layout>
@@ -37,7 +39,7 @@ import StorySection from '../components/StorySection.astro';
 			'hero.lead':
 				'A South Florida neighborhood deli rooted in Uruguayan family values, fresh sandwiches, everyday groceries, and service that remembers your name.',
 			'hero.ctaLocations': 'Find a location',
-			'hero.ctaCall': 'Call Oakland Park',
+			'hero.ctaOrder': 'Order online',
 			'hero.statFounded': 'Founded by Walter & Gloria',
 			'hero.statLocationsNumber': '2 Locations',
 			'hero.statLocations': 'Serving Oakland Park & Margate',
@@ -51,6 +53,14 @@ import StorySection from '../components/StorySection.astro';
 			'story.milestoneThree': 'Today: family-owned and hands-on',
 			'story.noteTitle': '1994 to today',
 			'story.noteCopy': 'Neighborhood service, family recipes, and a second location opened in 2017.',
+			'order.eyebrow': 'Order online',
+			'order.title': 'Bring the deli counter home.',
+			'order.copy': 'Choose your delivery app for sandwiches, breakfast, and neighborhood deli favorites.',
+			'order.uber': 'Uber Eats',
+			'order.uberCopy': 'Delivery through Uber Eats',
+			'order.doordash': 'DoorDash',
+			'order.doordashCopy': 'Pickup and delivery through DoorDash',
+			'order.action': 'Order now',
 			'locations.eyebrow': 'Visit us',
 			'locations.title': 'Two family-run delis, one familiar welcome.',
 			'locations.oakland.label': 'Original location',
@@ -67,15 +77,23 @@ import StorySection from '../components/StorySection.astro';
 			'products.eyebrow': 'Featured favorites',
 			'products.title': 'A quick taste of the deli counter and corner market.',
 			'products.copy':
-				'No full menu is needed to show what makes the shop useful: fresh sandwiches, everyday grocery items, cold drinks, and simple sides.',
-			'products.sandwiches.title': 'Sandwiches',
-			'products.sandwiches.copy': 'Fresh deli favorites made for lunch breaks, family stops, and quick pickup.',
-			'products.groceries.title': 'Grocery items',
-			'products.groceries.copy': 'Everyday pantry goods, snacks, and essentials for the ride home.',
-			'products.drinks.title': 'Drinks',
-			'products.drinks.copy': 'Cold drinks, coffee, and grab-and-go refreshments.',
-			'products.sides.title': 'Sides',
-			'products.sides.copy': 'Simple sides and deli extras to round out the meal.',
+				'Real deli favorites, photographed close and kept simple: Uruguayan sandwiches, breakfast plates, Cuban classics, and quick pickup comfort.',
+			'products.featureEyebrow': 'Breakfast to lunch',
+			'products.featureTitle': 'The kind of food people build routines around.',
+			'products.featureCopy':
+				'Start with eggs and coffee, come back for a pressed sandwich, and leave with something for home. That is the neighborhood deli rhythm.',
+			'products.chivito.title': 'Chivito',
+			'products.chivito.copy': 'A signature Uruguayan favorite layered for a generous, satisfying lunch.',
+			'products.cuban.title': 'Cuban sandwich',
+			'products.cuban.copy': 'Pressed, familiar, and made for the kind of stop that becomes routine.',
+			'products.breakfast.title': 'Breakfast plates',
+			'products.breakfast.copy': 'Warm morning plates for early workdays, family errands, and weekend starts.',
+			'products.medianoche.title': 'Medianoche',
+			'products.medianoche.copy': 'A sweet-savory classic that keeps the deli counter feeling personal.',
+			'products.bistec.title': 'Bistec',
+			'products.bistec.copy': 'A hearty steak sandwich with the comfort of a counter-made favorite.',
+			'products.porkroll.title': 'Pork roll',
+			'products.porkroll.copy': 'A breakfast-and-lunch staple made for quick stops and loyal regulars.',
 			'contact.eyebrow': 'Contact',
 			'contact.title': 'Call your neighborhood deli.',
 			'contact.copy':
@@ -96,7 +114,7 @@ import StorySection from '../components/StorySection.astro';
 			'hero.lead':
 				'Un deli de vecindario en el sur de Florida con valores familiares uruguayos, sandwiches frescos, viveres diarios y una atencion que recuerda tu nombre.',
 			'hero.ctaLocations': 'Ver locales',
-			'hero.ctaCall': 'Llamar a Oakland Park',
+			'hero.ctaOrder': 'Ordenar online',
 			'hero.statFounded': 'Fundado por Walter y Gloria',
 			'hero.statLocationsNumber': '2 Locales',
 			'hero.statLocations': 'Sirviendo Oakland Park y Margate',
@@ -110,6 +128,14 @@ import StorySection from '../components/StorySection.astro';
 			'story.milestoneThree': 'Hoy: familia presente y trabajando',
 			'story.noteTitle': 'De 1994 hasta hoy',
 			'story.noteCopy': 'Servicio de vecindario, recetas familiares y un segundo local abierto en 2017.',
+			'order.eyebrow': 'Ordene online',
+			'order.title': 'Lleve el deli a casa.',
+			'order.copy': 'Elija su app de delivery para sandwiches, desayunos y favoritos del vecindario.',
+			'order.uber': 'Uber Eats',
+			'order.uberCopy': 'Delivery por Uber Eats',
+			'order.doordash': 'DoorDash',
+			'order.doordashCopy': 'Pickup y delivery por DoorDash',
+			'order.action': 'Ordenar',
 			'locations.eyebrow': 'Visitenos',
 			'locations.title': 'Dos delis familiares, una bienvenida conocida.',
 			'locations.oakland.label': 'Local original',
@@ -127,15 +153,23 @@ import StorySection from '../components/StorySection.astro';
 			'products.eyebrow': 'Favoritos destacados',
 			'products.title': 'Una muestra rapida del deli y del mercado de la esquina.',
 			'products.copy':
-				'No hace falta un menu completo para mostrar lo util del local: sandwiches frescos, viveres diarios, bebidas frias y acompanantes simples.',
-			'products.sandwiches.title': 'Sandwiches',
-			'products.sandwiches.copy': 'Favoritos frescos de deli para el almuerzo, paradas familiares y pedidos rapidos.',
-			'products.groceries.title': 'Viveres',
-			'products.groceries.copy': 'Productos diarios, snacks y basicos para la casa.',
-			'products.drinks.title': 'Bebidas',
-			'products.drinks.copy': 'Bebidas frias, cafe y opciones para llevar.',
-			'products.sides.title': 'Acompanantes',
-			'products.sides.copy': 'Acompanantes simples y extras de deli para completar la comida.',
+				'Favoritos reales del deli, fotografiados de cerca y con simpleza: sandwiches uruguayos, desayunos, clasicos cubanos y comida lista para retirar.',
+			'products.featureEyebrow': 'Del desayuno al almuerzo',
+			'products.featureTitle': 'La comida que se vuelve parte de la rutina.',
+			'products.featureCopy':
+				'Empiece con huevos y cafe, vuelva por un sandwich prensado y lleve algo para casa. Ese es el ritmo del deli de vecindario.',
+			'products.chivito.title': 'Chivito',
+			'products.chivito.copy': 'Un favorito uruguayo, generoso y preparado para un almuerzo completo.',
+			'products.cuban.title': 'Sandwich cubano',
+			'products.cuban.copy': 'Prensado, familiar y hecho para esa parada que se vuelve costumbre.',
+			'products.breakfast.title': 'Desayunos',
+			'products.breakfast.copy': 'Platos calientes para comenzar temprano, hacer mandados o disfrutar el fin de semana.',
+			'products.medianoche.title': 'Medianoche',
+			'products.medianoche.copy': 'Un clasico dulce y salado que mantiene el mostrador cercano y personal.',
+			'products.bistec.title': 'Bistec',
+			'products.bistec.copy': 'Un sandwich de carne, abundante y con sabor de mostrador familiar.',
+			'products.porkroll.title': 'Pork roll',
+			'products.porkroll.copy': 'Un favorito de desayuno y almuerzo para paradas rapidas y clientes de siempre.',
 			'contact.eyebrow': 'Contacto',
 			'contact.title': 'Llame a su deli de vecindario.',
 			'contact.copy':

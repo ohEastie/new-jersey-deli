@@ -18,8 +18,14 @@
 
 		<div class="story__image">
 			<img
-				src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1100&q=82"
-				alt="Family and friends sharing food around a table"
+				src="/images/BREAKFASTcrosshamncheese.avif"
+				alt="Croissant breakfast sandwich from New Jersey Grocery and Deli"
+				loading="lazy"
+			/>
+			<img
+				class="story__image-accent"
+				src="/images/FEATUREDSANDhameggncheese.avif"
+				alt="Ham egg and cheese sandwich"
 				loading="lazy"
 			/>
 			<div class="story__note">
@@ -64,13 +70,17 @@
 		position: relative;
 	}
 
-	.story__image img {
+	.story__image > img:first-child {
 		width: 100%;
 		aspect-ratio: 4 / 3;
 		border-radius: var(--radius);
 		object-fit: cover;
 		object-position: center;
 		box-shadow: var(--shadow);
+	}
+
+	.story__image-accent {
+		display: none;
 	}
 
 	.story__note {
@@ -96,6 +106,29 @@
 		.story__grid {
 			grid-template-columns: minmax(0, 1fr) minmax(360px, 0.78fr);
 			gap: 4rem;
+		}
+
+		.story__image {
+			padding-bottom: 4.6rem;
+		}
+
+		.story__image-accent {
+			position: absolute;
+			right: -1rem;
+			bottom: 0;
+			display: block;
+			width: min(58%, 19rem);
+			aspect-ratio: 4 / 3;
+			border: 8px solid var(--neutral);
+			border-radius: var(--radius);
+			object-fit: cover;
+			object-position: center;
+			box-shadow: var(--shadow);
+		}
+
+		.story__note {
+			max-width: 22rem;
+			margin-top: -4rem;
 		}
 	}
 </style>

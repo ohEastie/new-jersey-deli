@@ -1,7 +1,7 @@
 <header class="site-header">
 	<nav class="nav container" aria-label="Primary navigation">
 		<a class="brand" href="#top" aria-label="New Jersey Grocery & Deli home">
-			<span class="brand-mark">NJ</span>
+			<img class="brand-mark" src="/images/logo.png" alt="" width="56" height="56" />
 			<span>
 				<strong>New Jersey</strong>
 				<small>Grocery & Deli</small>
@@ -56,17 +56,12 @@
 	}
 
 	.brand-mark {
-		display: grid;
-		place-items: center;
 		width: 2.8rem;
 		aspect-ratio: 1;
-		border-radius: var(--radius);
-		background:
-			linear-gradient(135deg, var(--blue), var(--blue-deep));
-		color: var(--white);
-		font-family: Georgia, "Times New Roman", serif;
-		font-weight: 900;
-		box-shadow: 0 10px 24px rgba(0, 91, 187, 0.18);
+		border-radius: 999px;
+		object-fit: cover;
+		object-position: center;
+		box-shadow: 0 10px 24px rgba(0, 91, 187, 0.16);
 	}
 
 	.brand strong,
