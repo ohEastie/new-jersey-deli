@@ -21,6 +21,7 @@
 			<a data-i18n="nav.hours" href="#hours">Hours</a>
 			<a data-i18n="nav.products" href="#products">Products</a>
 			<a data-i18n="nav.contact" href="#contact">Contact</a>
+			<a class="nav-order" data-i18n="nav.order" href="#order">Order Online</a>
 
 			<div class="language-toggle" aria-label="Language selector">
 				<button class="language-toggle__option is-active" type="button" data-lang-option="en" aria-pressed="true">EN</button>
@@ -56,12 +57,12 @@
 	}
 
 	.brand-mark {
-		width: 2.8rem;
-		aspect-ratio: 1;
+		width: 3rem;
+		height: auto;
+		max-height: 3rem;
 		border-radius: 999px;
-		object-fit: cover;
-		object-position: center;
-		box-shadow: 0 10px 24px rgba(0, 91, 187, 0.16);
+		object-fit: contain;
+		box-shadow: none;
 	}
 
 	.brand strong,
@@ -132,6 +133,19 @@
 		color: var(--blue);
 	}
 
+	.nav-panel .nav-order {
+		margin-top: 0.3rem;
+		background: var(--gold);
+		color: var(--blue-deep);
+		text-align: center;
+		box-shadow: 0 12px 28px rgba(245, 184, 46, 0.24);
+	}
+
+	.nav-panel .nav-order:hover {
+		background: #ffd063;
+		color: var(--blue-deep);
+	}
+
 	.language-toggle {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
@@ -191,6 +205,12 @@
 		.nav-panel a {
 			padding: 0.65rem 0.78rem;
 			font-size: 0.95rem;
+		}
+
+		.nav-panel .nav-order {
+			margin-top: 0;
+			margin-left: 0.35rem;
+			padding-inline: 1rem;
 		}
 
 		.language-toggle {

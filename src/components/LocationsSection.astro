@@ -1,8 +1,9 @@
 ---
 const locations = [
-		{
+	{
 		key: 'oakland',
-		image: 'https://images.unsplash.com/photo-1564759298141-cd3a8ed9b48b?auto=format&fit=crop&w=900&q=82',
+		image: '/images/New-Jersey-Deli-inside.jpg',
+		alt: 'Inside New Jersey Grocery and Deli',
 		address: '192 E Prospect Rd',
 		city: 'Oakland Park, FL 33334',
 		phone: '(954) 561-9211',
@@ -11,7 +12,8 @@ const locations = [
 	},
 	{
 		key: 'margate',
-		image: 'https://images.unsplash.com/photo-1578916171728-46686eac8d58?auto=format&fit=crop&w=900&q=82',
+		image: '/images/New-Jersey-Deli2-inside.jpg',
+		alt: 'Interior of New Jersey Deli 2',
 		address: '5416 W Atlantic Blvd',
 		city: 'Margate, FL 33063',
 		phone: '(754) 222-6760',
@@ -31,7 +33,7 @@ const locations = [
 		<div class="locations__grid">
 			{locations.map((location) => (
 				<article class="location-card">
-					<img src={location.image} alt="" loading="lazy" />
+					<img src={location.image} alt={location.alt} loading="lazy" />
 					<div>
 						<p class="location-card__label" data-i18n={`locations.${location.key}.label`}>
 							{location.key === 'oakland' ? 'Original location' : 'Second location'}

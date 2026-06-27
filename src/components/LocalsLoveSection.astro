@@ -1,0 +1,120 @@
+---
+const reasons = [
+	{ key: 'family', icon: '1994' },
+	{ key: 'uruguayan', icon: 'UY' },
+	{ key: 'breakfast', icon: 'AM' },
+	{ key: 'grocery', icon: 'GO' },
+	{ key: 'sandwiches', icon: 'HOT' },
+];
+---
+
+<section class="section section--white locals-love" id="locals-love">
+	<div class="container">
+		<div class="locals-love__heading">
+			<p class="eyebrow" data-i18n="locals.eyebrow">Why locals love us</p>
+			<h2 data-i18n="locals.title">A familiar stop for breakfast, groceries, and family favorites.</h2>
+			<p class="lead" data-i18n="locals.copy">
+				Trust is built one morning coffee, one sandwich, and one remembered name at a time.
+			</p>
+		</div>
+
+		<div class="locals-love__grid">
+			{reasons.map((reason) => (
+				<article class="reason-card">
+					<span class="reason-card__icon" aria-hidden="true">{reason.icon}</span>
+					<h3 data-i18n={`locals.${reason.key}.title`}>
+						{reason.key === 'family'
+							? 'Family Owned Since 1994'
+							: reason.key === 'uruguayan'
+								? 'Authentic Uruguayan Favorites'
+								: reason.key === 'breakfast'
+									? 'Fresh Breakfast Every Morning'
+									: reason.key === 'grocery'
+										? 'Neighborhood Grocery'
+										: 'Made-to-Order Sandwiches'}
+					</h3>
+					<p data-i18n={`locals.${reason.key}.copy`}>
+						{reason.key === 'family'
+							? 'Walter and Gloria started the deli with family values that still guide the counter today.'
+							: reason.key === 'uruguayan'
+								? 'The menu keeps South Florida connected to familiar Latin American comfort.'
+								: reason.key === 'breakfast'
+									? 'Early hours, hot plates, and coffee make it an easy daily routine.'
+									: reason.key === 'grocery'
+										? 'Pick up everyday essentials while you grab lunch or breakfast.'
+										: 'Sandwiches are prepared for real appetites, quick stops, and regular customers.'}
+					</p>
+				</article>
+			))}
+		</div>
+	</div>
+</section>
+
+<style>
+	.locals-love__heading {
+		max-width: 760px;
+		margin-bottom: 2rem;
+	}
+
+	.locals-love__grid {
+		display: grid;
+		gap: 1rem;
+	}
+
+	.reason-card {
+		min-height: 100%;
+		padding: 1.15rem;
+		border: 1px solid rgba(7, 55, 99, 0.1);
+		border-radius: var(--radius);
+		background: var(--white);
+		box-shadow: var(--shadow-soft);
+		transition:
+			transform 180ms ease,
+			box-shadow 180ms ease,
+			border-color 180ms ease;
+	}
+
+	.reason-card:hover {
+		transform: translateY(-3px);
+		border-color: rgba(245, 184, 46, 0.48);
+		box-shadow: var(--shadow);
+	}
+
+	.reason-card__icon {
+		display: inline-grid;
+		place-items: center;
+		min-width: 3rem;
+		height: 3rem;
+		margin-bottom: 1rem;
+		padding-inline: 0.6rem;
+		border-radius: var(--radius);
+		background: var(--blue-deep);
+		color: var(--gold);
+		font-size: 0.82rem;
+		font-weight: 950;
+		letter-spacing: 0.04em;
+	}
+
+	.reason-card h3 {
+		margin-bottom: 0.55rem;
+		font-family: Georgia, "Times New Roman", serif;
+		font-size: 1.45rem;
+	}
+
+	.reason-card p {
+		margin-bottom: 0;
+		color: var(--ink-soft);
+	}
+
+	@media (min-width: 680px) {
+		.locals-love__grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+
+	@media (min-width: 1040px) {
+		.locals-love__grid {
+			grid-template-columns: repeat(5, minmax(0, 1fr));
+		}
+	}
+</style>
